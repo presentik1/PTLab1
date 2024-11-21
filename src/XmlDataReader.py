@@ -7,8 +7,8 @@ class XmlDataReader(DataReader):
     def read(self, path: str) -> DataType:
         students = {}
         try:
-            with open(path, 'r', encoding='windows-1251') as f:  
-                tree = ET.parse(f)  
+            with open(path, 'r', encoding='windows-1251') as f:  # Используйте
+                tree = ET.parse(f)  # Открытие файла
                 root = tree.getroot()
         except ET.XMLSyntaxError as e:
             raise ValueError(
@@ -38,7 +38,8 @@ class XmlDataReader(DataReader):
                     score = int(subject.text)
                 except ValueError:
                     raise ValueError(
-                        f"Ошибка при преобразовании баллов в число для предмета: {subject_name}"
+                        f"Ошибка при изменение баллов в число для предмета: "
+                        f"{subject_name}"
                     )
 
                 subjects.append((subject_name, score))
