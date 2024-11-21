@@ -2,11 +2,12 @@ from src.DataReader import DataReader
 from src.Types import DataType
 from lxml import etree as ET
 
+
 class XmlDataReader(DataReader):
     def read(self, path: str) -> DataType:
         students = {}
         try:
-            with open(path, 'r', encoding='windows-1251') as f:  # Попробуйте windows-1251
+            with open(path, 'r', encoding='utf-8') as f:  # Используем utf-8
                 tree = ET.parse(f)  # Открытие файла с указанной кодировкой
                 root = tree.getroot()
         except ET.XMLSyntaxError as e:
@@ -18,18 +19,18 @@ class XmlDataReader(DataReader):
             student_name = student.get('name')
             if not student_name:
                 raise ValueError("Не найдено имя студента в атрибуте 'name'.")
-            
+
             subjects = []
             for subject in student.findall('subject'):
                 subject_name = subject.get('name')
                 if not subject_name:
                     raise ValueError("Не найдено название предмета в атрибуте 'name'.")
-                
+
                 try:
                     score = int(subject.text)
                 except ValueError:
                     raise ValueError(f"Ошибка при преобразовании баллов в число для предмета: {subject_name}")
-                
+
                 subjects.append((subject_name, score))
             students[student_name] = subjects
 
