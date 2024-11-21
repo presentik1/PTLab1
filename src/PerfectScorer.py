@@ -1,5 +1,6 @@
 from Types import DataType
 
+
 class PerfectScorer:
     def __init__(self, data: DataType):
         self.data = data
