@@ -26,10 +26,18 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Check installed packages
+        run: |
+          pip list
+
+      - name: Check Python version
+        run: |
+          python --version
+
       - name: Lint with pycodestyle
         run: |
           pycodestyle src test
 
       - name: Test with pytest
         run: |
-          PYTHONPATH=./:./src pytest test
+          pytest test
