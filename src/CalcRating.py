@@ -3,12 +3,13 @@ from Types import DataType
 
 RatingType = dict[str, float]
 
+
 class CalcRating:
- 
+
     def __init__(self, data: DataType) -> None:
         self.data: DataType = data
         self.rating: RatingType = {}
- 
+
     def calc(self) -> RatingType:
         for key in self.data:
             self.rating[key] = 0.0
