@@ -2,6 +2,7 @@ import pytest
 from src.XmlDataReader import XmlDataReader
 from src.Types import DataType
 
+
 class TestXmlDataReader:
 
     @pytest.fixture()

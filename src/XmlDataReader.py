@@ -29,7 +29,9 @@ class XmlDataReader(DataReader):
                 try:
                     score = int(subject.text)
                 except ValueError:
-                    raise ValueError(f"Ошибка при преобразовании баллов в число для предмета: {subject_name}")
+                    raise ValueError(
+                        f"Ошибка при преобразовании баллов в число для предмета: {subject_name}"
+                    )
 
                 subjects.append((subject_name, score))
             students[student_name] = subjects
