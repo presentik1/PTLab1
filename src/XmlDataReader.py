@@ -7,8 +7,8 @@ class XmlDataReader(DataReader):
     def read(self, path: str) -> DataType:
         students = {}
         try:
-            with open(path, 'r', encoding='utf-8') as f:  # Используем utf-8
-                tree = ET.parse(f)  # Открытие файла с указанной кодировкой
+            with open(path, 'r', encoding='windows-1251') as f:  # Попробуйте windows-1251
+                tree = ET.parse(f)  # Открытие файла
                 root = tree.getroot()
         except ET.XMLSyntaxError as e:
             raise ValueError(f"Ошибка при парсинге XML: {e}")
