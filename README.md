@@ -26,3 +26,5 @@
 
 UML диаграмма
 ![image](https://github.com/user-attachments/assets/1556199e-1902-48cf-9caf-b046df73f552)
+
+В результате лабораторной работы выполнены были все задачи.
