@@ -6,6 +6,7 @@ from CalcRating import CalcRating
 from TextDataReader import TextDataReader
 from PerfectScorer import PerfectScorer  # Импортируем PerfectScorer
 
+
 # Функция для получения пути из аргументов командной строки
 def get_path_from_arguments(args) -> str:
     parser = argparse.ArgumentParser(description="Path to datafile")
@@ -15,6 +16,7 @@ def get_path_from_arguments(args) -> str:
     )
     args = parser.parse_args(args)
     return args.path
+
 
 def main():
     # Получаем путь к файлу данных
@@ -34,7 +36,11 @@ def main():
     perfect_student = scorer.find_perfect_student()  # Находим такого студента
 
     # Выводим результат
-    print(perfect_student)
+    if perfect_student:
+        print(f"Student with perfect scores: {perfect_student}")
+    else:
+        print("No student with perfect scores found.")
+
 
 if __name__ == "__main__":
     main()
